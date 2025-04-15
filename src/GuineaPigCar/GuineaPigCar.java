@@ -45,23 +45,29 @@ public class GuineaPigCar extends Car implements GuineaPig {
 	
 	public void Eat(Food food) {
 		Stomach.add(food);
+		System.out.println(Name + "吃了" + food.getFoodName() + "！");
 		if(food.getFoodType() == FoodType.CARROT) {
 			//吃到紅蘿蔔時可以加速
 			int NowSpeed = getNowSpeed();
 			setNowSpeed(NowSpeed + CarrotSpeedUp);
 			
 		}
-		if(Stomach.size() >= StomachCapacity) {
+		if(Stomach.size() > StomachCapacity) {
 			//當天竺鼠車車吃到超過上限的食物時就會PUPU
 			PUPU();
 		}
 		
+	}
+	
+	public String getName() {
+		return Name;
 	}
 	public void PUPU() {
 		//原樣大出所有食物
 		Stomach.clear();
 		int InitialSpeed = getInitialSpeed();
 		setNowSpeed(InitialSpeed);
+		System.out.println(Name + "進行了PUPU！");
 	}
 	
 	public void Run(int Seconds) {

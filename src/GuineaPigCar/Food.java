@@ -9,6 +9,12 @@ public class Food {
 	Food(FoodType foodType){
 		this.FoodName = "";
 		this.foodType = foodType;
+		if(foodType == FoodType.CARROT) {
+			FoodName = "紅蘿蔔";
+		}
+		else if(foodType == FoodType.LETTUCE) {
+			FoodName = "生菜";
+		}
 	}
 	
 	public String getFoodName() {
